@@ -1,0 +1,252 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="csrf-token" content="{{ csrf_token }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="YogaFlex - Shape Your Body">
+    <title>Yoga</title>
+	
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+	<link rel="stylesheet" href="{% static 'app/styles.css' %}">
+    <script type="text/javascript" src="{% static 'app/script.js' %}"></script>
+
+	<!-- Flatpickr CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+	<!-- Flatpickr JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+</head>
+<body data-aos-easing="slide" data-aos-duration="800" data-aos-delay="0">
+
+<!-- start Header & Nav-bar -->
+	<header>
+    	<nav class="navbar navbar-expand-lg" id="ftco-navbar">
+        	<div class="container-fluid">
+            	<div class="row m-auto">
+                	<div class="col-12 w-100 text-center">
+                    	<a class="navbar-brand w-100" href="{% url 'home' %}">Yoga</a>
+                	</div>
+                	<div class="col-12 w-100 text-center">
+                    	<div class="collapse navbar-collapse" id="ftco-nav">
+                        	<ul class="navbar-nav m-auto">
+                            	<li class="nav-item">
+                                	<a class="nav-link" href="{% url 'home' %}">Home</a>
+                            	</li>
+                            	<li class="nav-item">
+                                	<a class="nav-link" href="{% url 'base' %}">Courses</a>
+                            	</li>
+                            	<li class="nav-item">
+                                	<a class="nav-link" href="{% url 'about' %}">About</a>
+                            	</li>
+                            	<li class="nav-item">
+                                	<a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                            	</li>
+                        	</ul>
+                        	<!-- "Book a Class" Button -->
+                        	<button class="btn btn-primary ms-3" onclick="openSidebar()">Book a Class</button>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+    	</nav>
+	</header>
+
+	<!-- Sidebar Structure -->
+	<div id="classSidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a>
+
+        <form id="booking-form">
+            <!-- Step 1: Service Selection -->
+            <div id="step-1" class="step active">
+                <h2>Schedule a Class</h2>
+                <label for="service">Service</label>
+                <select id="service" name="service" class="form-control">
+                    <option value="" disabled selected>— Select —</option>
+                    <option value="yoga">Yoga</option>
+                    <option value="meditation">Meditation</option>
+                </select>
+
+            	<label for="location">Location</label>
+                <select id="location" name="location" class="form-control">
+                    <option value="" disabled selected>— Any —</option>
+                    <option value="downtown">Downtown</option>
+                    <option value="online">Online</option>
+                </select>
+
+            	<label for="instructor">Instructor</label>
+                <select id="instructor" name="instructor" class="form-control">
+                    <option value="" disabled selected>— Any —</option>
+                    <option value="deepashri">Deepashri</option>
+                </select>
+
+                <button type="button" class="btn btn-primary btn-next" data-next="step-2">Next</button>
+    		</div>
+
+    		<!-- Step 2: Date and Time -->
+    		<div id="step-2" class="step">
+            	<h2>Select Date & Time</h2>
+                <label for="date">Select Date:</label>
+                <input type="text" id="date" name="date" class="form-control" placeholder="Select a date" readonly>
+
+            	<label for="time">Select Time:</label>
+                <select id="time" name="time" class="form-control">
+                    <option value="" disabled selected>— Select Time —</option>
+                    <option value="08:00">8.00AM - 9.00AM</option>
+                    <option value="09:00">9.00AM - 10.00AM</option>
+                    <option value="10:00">10.00AM - 11.00AM</option>
+                    <option value="18:00">17.00PM - 18.00PM</option>
+                    <option value="19:00">18.00PM - 19.00PM</option>
+                </select>
+
+            	<button type="button" class="btn btn-secondary btn-back" data-back="step-1">Back</button>
+                <button type="button" class="btn btn-primary btn-next" data-next="step-3">Next</button>
+            </div>
+    
+			<!-- Step 3: Reservation Confirmation -->
+			<div id="step-3" class="step">
+                <h2>Booking</h2>
+                <label for="user_name">Name*</label>
+                <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Name" required>
+
+                <label for="user_email">Email*</label>
+                <input type="email" id="user_email" name="user_email" class="form-control" placeholder="Email" required>
+
+                <label for="phone">Phone*</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone" required>
+                <span id="phone-error" class="error-message" style="display: none;">Phone number is invalid.</span>
+
+                <button type="button" class="btn btn-secondary btn-back" data-back="step-2">Back</button>
+                <button type="button" class="btn btn-primary btn-submit">Submit Booking</button>
+            </div>
+
+			<!-- Step 4: Confirmation -->
+			<div id="step-4" class="step">
+                <h2>Booking Confirmation</h2>
+                <p>Thank you for booking with YogaFlex!</p>
+                <p>Your class details have been sent to your email address.</p>
+
+                <button type="button" class="btn btn-primary" onclick="closeSidebar()">Close</button>
+            </div>
+        </form>
+    </div>
+		
+	<!-- start banner Area -->
+	<section class="banner-area" style="background-image: url('{% static 'app/images/image1.jpg' %}'); height: 500px;">
+    	<div class="container">
+        	<div class="row fullscreen d-flex align-items-center justify-content-between" style="height: 300px;">
+            	<div class="col-lg-4 col-md-4 banner-img">
+                	<img class="img-fluid" src="static/app/images/banner-img.png" alt="">
+            	</div>
+            	<div class="banner-content col-lg-7 col-md-7">
+                	<h1 class="text-uppercase">
+                    <span>YogaFlex</span> to <br> Shape your body
+                	</h1>
+            	</div>
+        	</div>
+    	</div>
+	</section>
+
+	<!-- Start About Us Area -->
+	<section class="about-area section-gap">
+    	<div class="container">
+        	<div class="row d-flex justify-content-center">
+            	<div class="col-lg-12">
+                	<div class="section-title-wrap text-center">
+                   	 <h1>How Yogaflex can change your life</h1>
+                    	<p>As you pour the first glass of your favorite Chianti or Chardonnay and settle into an intimate Friday evening.</p>
+                	</div>
+            	</div>
+        	</div>
+
+        	<div class="row justify-content-between align-items-center">
+            	<div class="col-lg-6 about-right">
+                	<div class="row">
+                    	<div class="col-lg-6">
+                        	<div class="single-about">
+                            	<h4>Body & Mind Balance</h4>
+                            	<p>
+                                	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                	Ut enim ad minim veniam.
+                            	</p>
+                        	</div>
+                    	</div>
+                    	<div class="col-lg-6">
+                        	<div class="single-about">
+                            	<h4>Healthy Daily Life</h4>
+                            	<p>
+                                	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                	Ut enim ad minim veniam.
+                            	</p>
+                        	</div>
+                    	</div>
+                    	<div class="col-lg-6">
+                        	<div class="single-about">
+                            	<h4>Improves Flexibility</h4>
+                            	<p>
+                                	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                	Ut enim ad minim veniam.
+                            	</p>
+                        	</div>
+                    	</div>
+                    	<div class="col-lg-6">
+                        	<div class="single-about">
+                            	<h4>Reduce Stress</h4>
+                            	<p>
+                                	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                	Ut enim ad minim veniam.
+                            	</p>
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+
+            	<div class="col-lg-6 about-left">
+                	<img class="img" src="static/app/images/image2.png" alt="">
+            	</div>
+        	</div>
+    	</div>    
+	</section>
+
+	<!-- End banner Area -->
+	<!-- Footer -->
+	<footer class="text-center py-4">
+    	<p class="mb-0">© 2024 YogaFlex. All rights reserved.</p>
+	</footer>
+
+	<!-- AOS CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+	<!-- AOS JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+	<!-- AOS Initialization -->
+	<script>
+    	document.addEventListener("DOMContentLoaded", function () {
+        	AOS.init({
+            	easing: "slide",
+            	duration: 800,
+            	delay: 0,
+        	});
+    	});
+	</script>
+    
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+    	function openSidebar() {
+        	document.getElementById("classSidebar").style.width = "400px";
+    	}
+
+    	function closeSidebar() {
+        	document.getElementById("classSidebar").style.width = "0";
+    	}
+		
+	</script>
+</body>
+</html>

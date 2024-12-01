@@ -1,0 +1,249 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="YogaFlex - Shape Your Body">
+    <title>Yoga</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'app/styles.css' %}">
+    <script type="text/javascript" charset="UTF-8" src="{% static 'app/script.js' %}"></script>
+
+    <!-- Flatpickr CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+	<!-- Flatpickr JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+</head>
+    <!-- start Nav-bar -->
+    <header>
+	    <nav class="navbar navbar-expand-lg" id="ftco-navbar">
+  		    <div class="container-fluid">
+  			    <div class="row m-auto">
+  				    <div class="col-12 w-100 text-center">
+  					    <a class="navbar-brand w-100" href="{% url 'home' %}">Yoga</a>
+  				    </div>
+  				    <div class="col-12 w-100 text-center">
+  					    <div class="collapse navbar-collapse" id="ftco-nav">
+			        	    <ul class="navbar-nav m-auto">
+                			    <li class="nav-item">
+                    			    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                			    </li>
+							    <li class="nav-item">
+                    			    <a class="nav-link" href="{% url 'base' %}">Courses</a>
+                			    </li>
+                			    <li class="nav-item">
+                    			    <a class="nav-link" href="{% url 'about' %}">About</a>
+                			    </li>
+                			    <li class="nav-item">
+                    			    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                			    </li>
+            			    </ul>
+                            <!-- "Book a Class" Button -->
+                        	<button class="btn btn-primary ms-3" onclick="openSidebar()">Book a Class</button>
+        			    </div>
+    			    </div>
+			    </div>
+		    </div>
+	    </nav>
+    </header>
+
+    <!-- Sidebar Structure -->
+	<div id="classSidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a>
+
+        <form id="booking-form">
+            <!-- Step 1: Service Selection -->
+            <div id="step-1" class="step active">
+                <h2>Schedule a Class</h2>
+                <label for="service">Service</label>
+                <select id="service" name="service" class="form-control">
+                    <option value="" disabled selected>— Select —</option>
+                    <option value="yoga">Yoga</option>
+                    <option value="meditation">Meditation</option>
+                </select>
+
+            	<label for="location">Location</label>
+                <select id="location" name="location" class="form-control">
+                    <option value="" disabled selected>— Any —</option>
+                    <option value="downtown">Downtown</option>
+                    <option value="online">Online</option>
+                </select>
+
+            	<label for="instructor">Instructor</label>
+                <select id="instructor" name="instructor" class="form-control">
+                    <option value="" disabled selected>— Any —</option>
+                    <option value="deepashri">Deepashri</option>
+                </select>
+
+                <button type="button" class="btn btn-primary btn-next" data-next="step-2">Next</button>
+    		</div>
+
+    		<!-- Step 2: Date and Time -->
+    		<div id="step-2" class="step">
+            	<h2>Select Date & Time</h2>
+                <label for="date">Select Date:</label>
+                <input type="text" id="date" name="date" class="form-control" placeholder="Select a date" readonly>
+
+            	<label for="time">Select Time:</label>
+                <select id="time" name="time" class="form-control">
+                    <option value="" disabled selected>— Select Time —</option>
+                    <option value="08:00">8.00AM - 9.00AM</option>
+                    <option value="09:00">9.00AM - 10.00AM</option>
+                    <option value="10:00">10.00AM - 11.00AM</option>
+                    <option value="18:00">17.00PM - 18.00PM</option>
+                    <option value="19:00">18.00PM - 19.00PM</option>
+                </select>
+
+            	<button type="button" class="btn btn-secondary btn-back" data-back="step-1">Back</button>
+                <button type="button" class="btn btn-primary btn-next" data-next="step-3">Next</button>
+            </div>
+    
+			<!-- Step 3: Reservation Confirmation -->
+			<div id="step-3" class="step">
+                <h2>Booking</h2>
+                <label for="user_name">Name*</label>
+                <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Name" required>
+
+                <label for="user_email">Email*</label>
+                <input type="email" id="user_email" name="user_email" class="form-control" placeholder="Email" required>
+
+                <label for="phone">Phone*</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone" required>
+                <span id="phone-error" class="error-message" style="display: none;">Phone number is invalid.</span>
+
+                <button type="button" class="btn btn-secondary btn-back" data-back="step-2">Back</button>
+                <button type="button" class="btn btn-primary btn-submit">Submit Booking</button>
+            </div>
+
+			<!-- Step 4: Confirmation -->
+			<div id="step-4" class="step">
+                <h2>Booking Confirmation</h2>
+                <p>Thank you for booking with YogaFlex!</p>
+                <p>Your class details have been sent to your email address.</p>
+
+                <button type="button" class="btn btn-primary" onclick="closeSidebar()">Close</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- start banner Area -->
+	<section class="banner-area" style="background-image: url('{% static 'app/images/image1.jpg' %}')">
+		<div class="container text-center">
+			<div class="banner-content">
+            	<h1 class="text-uppercase">Contact</h1>
+        	</div>
+    	</div>
+	</section>
+
+    <!-- Contact Page Area -->
+    <section class="contact-page-area section-gap">
+        <div class="container">
+            <div class="row">
+                <!-- Map Integration -->
+                <div class="map-wrap" style="width:100%; height: 445px;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.9228482552263!2d-75.92962618459347!3d42.098687979203824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89da55cd6db3b2cf%3A0xa63bc0f4dd9b9c1b!2s4343%20Hinkle%20Deegan%20Lake%20Rd%2C%20Binghamton%2C%20NY%2013904%2C%20USA!5e0!3m2!1sen!2sin!4v1633260258918!5m2!1sen!2sin"
+                        width="100%" height="445" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <!-- Address Section -->
+                <div class="col-lg-4 d-flex flex-column address-wrap">
+                    <div class="single-contact-address d-flex flex-row">
+                        <div class="icon">
+                            <span class="lnr lnr-home"></span>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Dolgenseestraße 8b</h5>
+                            <p>10319, Berlin, Germany</p>
+                        </div>
+                    </div>
+                    <div class="single-contact-address d-flex flex-row">
+                        <div class="icon">
+                            <span class="lnr lnr-phone-handset"></span>
+                        </div>
+                        <div class="contact-details">
+                            <h5>+49-17676622543</h5>
+                            <p>Mon to Fri 9am to 6 pm</p>
+                        </div>
+                    </div>
+                    <div class="single-contact-address d-flex flex-row">
+                        <div class="icon">
+                            <span class="lnr lnr-envelope"></span>
+                        </div>
+                        <div class="contact-details">
+                            <h5>support@yogaflex.com</h5>
+                            <p>Send us your query anytime!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-8">
+                    <form class="form-area contact-form" id="myForm" action="{% url 'contact' %}" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6 form-group">
+                                <input name="name" placeholder="Enter your name" autocomplete="off"
+                                    class="common-input mb-3 form-control" required="" type="text">
+                                <input name="email" placeholder="Enter email address" autocomplete="off"
+                                    class="common-input mb-3 form-control" required="" type="email">
+                                <input name="subject" placeholder="Enter subject" autocomplete="off"
+                                    class="common-input mb-3 form-control" required="" type="text">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <textarea class="common-textarea form-control" name="message" placeholder="Enter Message"
+                                    autocomplete="off" required=""></textarea>
+                            </div>
+                            <div class="col-lg-12 text-end">
+                                <button class="genric-btn primary">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<!-- End banner Area -->
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <p class="mb-0">© 2024 YogaFlex. All rights reserved.</p>
+    </footer>
+
+    <!-- AOS CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+	<!-- AOS JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+	<!-- AOS Initialization -->
+	<script>
+    	document.addEventListener("DOMContentLoaded", function () {
+        	AOS.init({
+            	easing: "slide",
+            	duration: 800,
+            	delay: 0,
+        	});
+    	});
+	</script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    	function openSidebar() {
+        	document.getElementById("classSidebar").style.width = "400px";
+    	}
+
+    	function closeSidebar() {
+        	document.getElementById("classSidebar").style.width = "0";
+    	}
+		
+	</script>
+    
+</body>
+</html>
