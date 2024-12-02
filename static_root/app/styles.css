@@ -1,0 +1,565 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    box-sizing: border-box;
+}
+
+/* Navbar Styles */
+#ftco-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+    /* Dark background color */
+    padding: 1rem 5;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    /* White text for the brand */
+    letter-spacing: 1px;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    /* Spacing between links */
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: black;
+    /* White text for links */
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #ff6f61;
+    /* Coral hover effect */
+}
+
+.nav-item {
+    list-style: none;
+}
+
+/* Center Navbar Items */
+.navbar-collapse {
+    justify-content: center;
+    text-align: center;
+}
+
+/* Additional Styling for Consistency */
+header {
+    background-color: white;
+    /* Matches the navbar background */
+    padding-bottom: 8rem;
+}
+
+header .container-fluid {
+    padding: 0 2rem;
+}
+
+
+/* Banner Section for Index.html */
+.banner-area {
+    position: relative;
+    background-size: contain;
+    background-position: right;
+    color: #fff;
+    text-align: left;
+    height: 500vh;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.banner-img {
+    flex: 1;
+    display: flex;
+    justify-content: right;
+    /* Center the image horizontally */
+    align-items: right;
+    /* Center the image vertically */
+    margin-right: 6rem;
+    /* Adjust the right margin for spacing */
+}
+
+.banner-area .banner-content h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #fff;
+    line-height: 1.4;
+}
+
+.banner-area .banner-content h1 span {
+    color: orange;
+}
+
+.banner-area .banner-content a.primary-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Section Styling for Index.html */
+.about-area {
+    padding: 4rem 0;
+    /* Top and bottom spacing for the section */
+    background-color: #f8f9fa;
+    /* Light background color */
+}
+
+.section-title-wrap {
+    margin-bottom: 2rem;
+    /* Space below the title */
+}
+
+.section-title-wrap h1 {
+    font-size: 2.5rem;
+    /* Main title size */
+    color: #333333;
+    /* Primary color */
+    margin-bottom: 0.5rem;
+}
+
+.section-title-wrap p {
+    font-size: 1rem;
+    /* Subtitle size */
+    color: #555;
+    /* Grayish color for subtitle */
+}
+
+/* About Right (Text Blocks) */
+.about-right {
+    padding: 2rem;
+    /* Spacing around the text content */
+}
+
+.single-about {
+    background-color: #fff;
+    /* White background for cards */
+    padding: 1.5rem;
+    /* Inner spacing for the card */
+    margin-bottom: 1.5rem;
+    /* Space between cards */
+}
+
+.single-about:hover {
+    transform: translateY(-5px);
+    /* Move up slightly on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    /* Enhanced shadow on hover */
+}
+
+.single-about h4 {
+    font-size: 1rem;
+    /* Heading size for cards */
+    color: #007bff;
+    /* Blue heading color */
+    margin-bottom: 1rem;
+}
+
+.single-about p {
+    font-size: 1rem;
+    /* Standard paragraph text size */
+    color: #555;
+    /* Slightly darker text for readability */
+}
+
+/* About Left (Image Section) */
+.about-left img {
+    max-width: 100%;
+    /* Responsive image */
+}
+
+/* Banner Section for Schedule.html */
+.banner-area {
+    position: relative;
+    height: 250px;
+    /* Smaller height for the class banner */
+    background-size: cover;
+    /* Ensures image covers the entire banner area */
+    background-position: center;
+    /* Centers the background image */
+    background-repeat: no-repeat;
+
+}
+
+.banner-area .banner-content h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: white;
+    margin: 0;
+}
+
+/* Section Styling */
+.ftco-section {
+    padding: 4rem 0;
+    /* Adds top and bottom padding */
+}
+
+/* Row Spacing */
+.ftco-section .row {
+    margin: 0 -15px;
+    /* Negates Bootstrap's gutter spacing */
+    gap: 20px 250px;
+    /* Adds uniform gap between columns and rows */
+
+}
+
+/* Classes Container */
+.classes {
+    position: relative;
+    margin: 20px;
+    border-radius: 0;
+    /* Adds rounded corners */
+    overflow: hidden;
+    /* Ensures content doesn't overflow */
+}
+
+.classes:hover {
+    transform: scale(1.05);
+    /* Slight zoom on hover */
+}
+
+/* Image Styling */
+.img-fluid {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    /* Set a fixed height for images */
+    background-size: cover;
+    /* Ensures the image covers the entire area */
+    background-position: center;
+    /* Centers the image */
+    border-radius: 0;
+    /* Rounds the top corners */
+
+}
+
+/* Text Styling */
+.text {
+    background-color: #000000, 80% opacity;
+    /* Background for text */
+    padding: 1.2rem;
+    /* Adds padding around text */
+    text-align: center;
+    /* Centers text */
+}
+
+.text h3 {
+    font-size: 1.25rem;
+    /* Font size for headings */
+    font-weight: bold;
+    color: #333;
+    /* Darker text color */
+    margin: 0;
+}
+
+.text h3 a {
+    text-decoration: none;
+    /* Removes underline from links */
+    color: inherit;
+    /* Inherits color from h3 */
+}
+
+.text h3 a:hover {
+    color: #007bff;
+    /* Changes to blue on hover */
+}
+
+/* Centering the text container */
+.text-center {
+    text-align: center;
+    /* Center-aligns all child elements */
+    margin-top: 20px;
+    /* Adds spacing above the buttons */
+}
+
+
+/* Banner Section for About.html */
+.banner-area {
+    position: relative;
+    height: 300px;
+    /* Smaller height for the class banner */
+    background-size: cover;
+    /* Ensures image covers the entire banner area */
+    background-position: center;
+    /* Centers the background image */
+    background-repeat: no-repeat;
+
+}
+
+.banner-content h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: white;
+    margin: 0;
+}
+
+/* Banner Section for Contact.html */
+.banner-area {
+    position: relative;
+    height: 300px;
+    /* Smaller height for the class banner */
+    background-size: cover;
+    /* Ensures image covers the entire banner area */
+    background-position: center;
+    /* Centers the background image */
+    background-repeat: no-repeat;
+
+}
+
+.banner-content h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: white;
+    margin: 0;
+}
+
+/* Contact Page Styling */
+.contact-page-area {
+    padding: 150px 0;
+    background-color: #f8f9fa;
+}
+
+/* Map Integration */
+.map-wrap {
+    margin-bottom: 60px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Address Section Styling */
+.address-wrap {
+    margin-top: 60px;
+}
+
+.single-contact-address {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.single-contact-address .icon {
+    color: #007bff;
+    font-size: 20px;
+    padding: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-details h5 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.contact-details p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+
+/* Form Input and Textarea Styling */
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+    margin-bottom: 20px;
+    /* Adds consistent spacing between fields */
+    padding: 10px;
+    /* Adds padding inside the inputs and textarea */
+    font-size: 1rem;
+    /* Makes the text size consistent */
+    border-radius: 0;
+    /* Rounded edges */
+    width: 100%;
+    /* Ensures fields take the full width of the container */
+    box-sizing: border-box;
+    /* Includes padding and borders in width calculation */
+
+}
+
+/* Adjust Textarea */
+.contact-form .form-group textarea {
+    resize: none;
+    /* Prevents resizing */
+    height: 180px;
+    /* Sets a fixed height */
+    vertical-align: top;
+    /* Ensures the text starts from the top */
+}
+
+/* Form Container Alignment */
+.contact-form {
+    margin-top: 36px;
+    /* Adds space between the form and map */
+    padding: 20px;
+    /* Optional: Adds internal spacing to the form */
+    border-radius: 8px;
+    /* Adds rounded corners */
+
+}
+
+
+/* Button Styling */
+.contact-form button {
+    background-color: #007bff;
+    /* Button color */
+    color: #fff;
+    /* White text */
+    padding: 12px 30px;
+    /* Adjusted padding */
+    border: none;
+    /* Removes border */
+    border-radius: 0;
+    /* Rounded corners */
+    font-size: 1.2rem;
+    /* Larger font size for the button */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    margin: 50px;
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: #007bff;
+}
+
+.sidebar form {
+    padding: 20px;
+}
+
+.sidebar label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.sidebar select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.sidebar .submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Open Button */
+.openbtn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Highlight fields with errors */
+.error {
+    border: 1px;
+}
+
+/* Style for inline error messages */
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+#step-3 {
+    display: none;
+    /* Hide by default */
+}
+
+#step-3.active {
+    display: block;
+    /* Show when active */
+}
+
+#reservation-details p {
+    margin: 10px 0;
+}
+
+#clients {
+    margin: 10px 0;
+    padding: 5px;
+    width: 100%;
+}
+
+
+
+/* Footer Styles */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+footer p {
+    margin: 0;
+}

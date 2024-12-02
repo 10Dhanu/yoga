@@ -76,16 +76,16 @@ WSGI_APPLICATION = "main.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'yogadb',
-        'USER': 'root',
-        'PASSWORD': 'Berlin@123',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
+#DATABASES = {
+#    "default": {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'yogadb',
+#        'USER': 'root',
+#        'PASSWORD': 'Berlin@123',
+#        'HOST': 'localhost',
+#        'PORT': '3306',
+#    }
+#}
 
 
 # Password validation
@@ -128,6 +128,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "app/static"]
+STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
